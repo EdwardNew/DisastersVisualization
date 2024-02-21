@@ -255,6 +255,7 @@
           .attr("r", radius)
           .attr("fill", "none")
           .attr("pointer-events", "all")
+          .style("background-color", "blue")
           .on("click", clicked);
   
       // Handle zoom on click.
@@ -365,8 +366,7 @@
         }
         value = sumLowestLevelChildrenValues(d);
 
-        hoverLabel.select('.value').text(Math.round(value));
-        console.log(d);
+        hoverLabel.select('.value').text(new Intl.NumberFormat('en-US').format(Math.round(value)));
         hoverLabel.select('.hazard_name').text(d.data.name + " hazards impacted");
 
         hoverLabel.transition()
@@ -384,14 +384,20 @@
   </script>
   
   <main>
-      <h1>What Are the Most Deadly Natural and Technological Disasters from 2000-2022?</h1>
-      <p>Click on a slice to zoom in, and the middle to zoom out.</p>
+      <h1>Natural and Technological Disasters in the United States from 2000-2022</h1>
+      <h2>Mass disasters take place all over the United States each year. But which disasters have wreaked the most havoc?</h2>
+      <p>Hover over a section of the chart to see how many people have been impacted by that disaster class. <br/> Click on the section to zoom in to see the subcategories of that disaster class. <br/> Click on the outer edge of the middle circle to zoom back out.</p>
+      <a style="display: block;" href="https://docs.google.com/document/d/14R24_BvlbdtmUr3W0oudUZBbygMLJDj7ozOOGtSPFz4/edit?usp=sharing" target="_blank">Project Writeup</a>
+      <a href="https://www.emdat.be/" target="_blank">data source</a>
   </main>
   
   
   <style>
       /* add style */
-      h1 {
+      h2{
+        font-size:larger;
+      }
+      h1,h2,p, a {
           font-family: 'Roboto', sans-serif;
       }
   </style>
