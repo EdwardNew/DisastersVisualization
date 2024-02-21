@@ -3,18 +3,21 @@
   import * as d3 from 'd3';
 
   onMount(() => {
-    // Specify the chart’s dimensions.
-    const width = 928;
+    // Specify the chart’s dimensions.    
+    const width = 500;
     const height = width;
     const radius = width / 6;
 
     // Your data variable here
-    const data = {"name":"flare","children":[{"name":"analytics","children":[{"name":"cluster","children":[{"name":"AgglomerativeCluster","value":3938},{"name":"CommunityStructure","value":3812},{"name":"HierarchicalCluster","value":6714},{"name":"MergeEdge","value":743}]},{"name":"graph","children":[{"name":"BetweennessCentrality","value":3534},{"name":"LinkDistance","value":5731},{"name":"MaxFlowMinCut","value":7840},{"name":"ShortestPaths","value":5914},{"name":"SpanningTree","value":3416}]},{"name":"optimization","children":[{"name":"AspectRatioBanker","value":7074}]}]},{"name":"animate","children":[{"name":"Easing","value":17010},{"name":"FunctionSequence","value":5842},{"name":"interpolate","children":[{"name":"ArrayInterpolator","value":1983},{"name":"ColorInterpolator","value":2047},{"name":"DateInterpolator","value":1375},{"name":"Interpolator","value":8746},{"name":"MatrixInterpolator","value":2202},{"name":"NumberInterpolator","value":1382},{"name":"ObjectInterpolator","value":1629},{"name":"PointInterpolator","value":1675},{"name":"RectangleInterpolator","value":2042}]},{"name":"ISchedulable","value":1041},{"name":"Parallel","value":5176},{"name":"Pause","value":449},{"name":"Scheduler","value":5593},{"name":"Sequence","value":5534},{"name":"Transition","value":9201},{"name":"Transitioner","value":19975},{"name":"TransitionEvent","value":1116},{"name":"Tween","value":6006}]},{"name":"data","children":[{"name":"converters","children":[{"name":"Converters","value":721},{"name":"DelimitedTextConverter","value":4294},{"name":"GraphMLConverter","value":9800},{"name":"IDataConverter","value":1314},{"name":"JSONConverter","value":2220}]},{"name":"DataField","value":1759},{"name":"DataSchema","value":2165},{"name":"DataSet","value":586},{"name":"DataSource","value":3331},{"name":"DataTable","value":772},{"name":"DataUtil","value":3322}]},{"name":"display","children":[{"name":"DirtySprite","value":8833},{"name":"LineSprite","value":1732},{"name":"RectSprite","value":3623},{"name":"TextSprite","value":10066}]},{"name":"flex","children":[{"name":"FlareVis","value":4116}]},{"name":"physics","children":[{"name":"DragForce","value":1082},{"name":"GravityForce","value":1336},{"name":"IForce","value":319},{"name":"NBodyForce","value":10498},{"name":"Particle","value":2822},{"name":"Simulation","value":9983},{"name":"Spring","value":2213},{"name":"SpringForce","value":1681}]},{"name":"query","children":[{"name":"AggregateExpression","value":1616},{"name":"And","value":1027},{"name":"Arithmetic","value":3891},{"name":"Average","value":891},{"name":"BinaryExpression","value":2893},{"name":"Comparison","value":5103},{"name":"CompositeExpression","value":3677},{"name":"Count","value":781},{"name":"DateUtil","value":4141},{"name":"Distinct","value":933},{"name":"Expression","value":5130},{"name":"ExpressionIterator","value":3617},{"name":"Fn","value":3240},{"name":"If","value":2732},{"name":"IsA","value":2039},{"name":"Literal","value":1214},{"name":"Match","value":3748},{"name":"Maximum","value":843},{"name":"methods","children":[{"name":"add","value":593},{"name":"and","value":330},{"name":"average","value":287},{"name":"count","value":277},{"name":"distinct","value":292},{"name":"div","value":595},{"name":"eq","value":594},{"name":"fn","value":460},{"name":"gt","value":603},{"name":"gte","value":625},{"name":"iff","value":748},{"name":"isa","value":461},{"name":"lt","value":597},{"name":"lte","value":619},{"name":"max","value":283},{"name":"min","value":283},{"name":"mod","value":591},{"name":"mul","value":603},{"name":"neq","value":599},{"name":"not","value":386},{"name":"or","value":323},{"name":"orderby","value":307},{"name":"range","value":772},{"name":"select","value":296},{"name":"stddev","value":363},{"name":"sub","value":600},{"name":"sum","value":280},{"name":"update","value":307},{"name":"variance","value":335},{"name":"where","value":299},{"name":"xor","value":354},{"name":"_","value":264}]},{"name":"Minimum","value":843},{"name":"Not","value":1554},{"name":"Or","value":970},{"name":"Query","value":13896},{"name":"Range","value":1594},{"name":"StringUtil","value":4130},{"name":"Sum","value":791},{"name":"Variable","value":1124},{"name":"Variance","value":1876},{"name":"Xor","value":1101}]},{"name":"scale","children":[{"name":"IScaleMap","value":2105},{"name":"LinearScale","value":1316},{"name":"LogScale","value":3151},{"name":"OrdinalScale","value":3770},{"name":"QuantileScale","value":2435},{"name":"QuantitativeScale","value":4839},{"name":"RootScale","value":1756},{"name":"Scale","value":4268},{"name":"ScaleType","value":1821},{"name":"TimeScale","value":5833}]},{"name":"util","children":[{"name":"Arrays","value":8258},{"name":"Colors","value":10001},{"name":"Dates","value":8217},{"name":"Displays","value":12555},{"name":"Filter","value":2324},{"name":"Geometry","value":10993},{"name":"heap","children":[{"name":"FibonacciHeap","value":9354},{"name":"HeapNode","value":1233}]},{"name":"IEvaluable","value":335},{"name":"IPredicate","value":383},{"name":"IValueProxy","value":874},{"name":"math","children":[{"name":"DenseMatrix","value":3165},{"name":"IMatrix","value":2815},{"name":"SparseMatrix","value":3366}]},{"name":"Maths","value":17705},{"name":"Orientation","value":1486},{"name":"palette","children":[{"name":"ColorPalette","value":6367},{"name":"Palette","value":1229},{"name":"ShapePalette","value":2059},{"name":"SizePalette","value":2291}]},{"name":"Property","value":5559},{"name":"Shapes","value":19118},{"name":"Sort","value":6887},{"name":"Stats","value":6557},{"name":"Strings","value":22026}]},{"name":"vis","children":[{"name":"axis","children":[{"name":"Axes","value":1302},{"name":"Axis","value":24593},{"name":"AxisGridLine","value":652},{"name":"AxisLabel","value":636},{"name":"CartesianAxes","value":6703}]},{"name":"controls","children":[{"name":"AnchorControl","value":2138},{"name":"ClickControl","value":3824},{"name":"Control","value":1353},{"name":"ControlList","value":4665},{"name":"DragControl","value":2649},{"name":"ExpandControl","value":2832},{"name":"HoverControl","value":4896},{"name":"IControl","value":763},{"name":"PanZoomControl","value":5222},{"name":"SelectionControl","value":7862},{"name":"TooltipControl","value":8435}]},{"name":"data","children":[{"name":"Data","value":20544},{"name":"DataList","value":19788},{"name":"DataSprite","value":10349},{"name":"EdgeSprite","value":3301},{"name":"NodeSprite","value":19382},{"name":"render","children":[{"name":"ArrowType","value":698},{"name":"EdgeRenderer","value":5569},{"name":"IRenderer","value":353},{"name":"ShapeRenderer","value":2247}]},{"name":"ScaleBinding","value":11275},{"name":"Tree","value":7147},{"name":"TreeBuilder","value":9930}]},{"name":"events","children":[{"name":"DataEvent","value":2313},{"name":"SelectionEvent","value":1880},{"name":"TooltipEvent","value":1701},{"name":"VisualizationEvent","value":1117}]},{"name":"legend","children":[{"name":"Legend","value":20859},{"name":"LegendItem","value":4614},{"name":"LegendRange","value":10530}]},{"name":"operator","children":[{"name":"distortion","children":[{"name":"BifocalDistortion","value":4461},{"name":"Distortion","value":6314},{"name":"FisheyeDistortion","value":3444}]},{"name":"encoder","children":[{"name":"ColorEncoder","value":3179},{"name":"Encoder","value":4060},{"name":"PropertyEncoder","value":4138},{"name":"ShapeEncoder","value":1690},{"name":"SizeEncoder","value":1830}]},{"name":"filter","children":[{"name":"FisheyeTreeFilter","value":5219},{"name":"GraphDistanceFilter","value":3165},{"name":"VisibilityFilter","value":3509}]},{"name":"IOperator","value":1286},{"name":"label","children":[{"name":"Labeler","value":9956},{"name":"RadialLabeler","value":3899},{"name":"StackedAreaLabeler","value":3202}]},{"name":"layout","children":[{"name":"AxisLayout","value":6725},{"name":"BundledEdgeRouter","value":3727},{"name":"CircleLayout","value":9317},{"name":"CirclePackingLayout","value":12003},{"name":"DendrogramLayout","value":4853},{"name":"ForceDirectedLayout","value":8411},{"name":"IcicleTreeLayout","value":4864},{"name":"IndentedTreeLayout","value":3174},{"name":"Layout","value":7881},{"name":"NodeLinkTreeLayout","value":12870},{"name":"PieLayout","value":2728},{"name":"RadialTreeLayout","value":12348},{"name":"RandomLayout","value":870},{"name":"StackedAreaLayout","value":9121},{"name":"TreeMapLayout","value":9191}]},{"name":"Operator","value":2490},{"name":"OperatorList","value":5248},{"name":"OperatorSequence","value":4190},{"name":"OperatorSwitch","value":2581},{"name":"SortOperator","value":2023}]},{"name":"Visualization","value":16540}]}]}
-    
+    const data = {"name":"Hazards","children":[{"name":"Natural","children":[{"name":"Biological","children":[{"name":"Infectious disease (General)","value":2.0043213737826427},{"name":"Viral disease","value":3.5496874329788395}]},{"name":"Climatological","children":[{"name":"Forest fire","value":5.571622448361674},{"name":"Land fire (Brush, Bush, Pasture)","value":5.819158884822703},{"name":"Wildfire (General)","value":4.860431855556025}]},{"name":"Geophysical","children":[{"name":"Earthquake","value":4.550717669542857},{"name":"Volcanic activity","value":3.3979400086720375}]},{"name":"Hydrological","children":[{"name":"Flash flood","value":4.68728824250609},{"name":"Flood (General)","value":5.029051919806785},{"name":"Riverine flood","value":7.060060065981077}]},{"name":"Meteorological","children":[{"name":"Blizzard/Winter storm","value":11.930231903081854},{"name":"Derecho","value":1.0791812460476249},{"name":"Hail","value":4.054476177447999},{"name":"Heat wave","value":1.4913616938342726},{"name":"Lightning/Thunderstorms","value":4.162007432880231},{"name":"Severe weather","value":3.9903930401892684},{"name":"Storm (General)","value":5.315935836097904},{"name":"Tornado","value":5.421339397929589},{"name":"Tropical cyclone","value":7.051537733717228}]}]},{"name":"Technological","children":[{"name":"Industrial accident","children":[{"name":"Chemical spill","value":0.22788670461367366},{"name":"Explosion (Industrial)","value":0.9995654882259823},{"name":"Gas leak","value":3.916453974479235}]},{"name":"Miscellaneous accident","children":[{"name":"Collapse (Miscellaneous)","value":0.5237460173328501},{"name":"Explosion (Miscellaneous)","value":0.552668216112193},{"name":"Fire (Miscellaneous)","value":0.9515420900592463},{"name":"Miscellaneous accident (General)","value":0.7913912820470732}]},{"name":"Transport","children":[{"name":"Air","value":0.417606546360271},{"name":"Rail","value":3.6857417386020183},{"name":"Road","value":0.4978118983819142},{"name":"Water","value":0.3201462861110547}]}]}]}
+    // const data = {"name":"Hazards","children":[{"name":"Natural","children":[{"name":"Biological","children":[{"name":"Infectious disease (General)","value":101.0},{"name":"Viral disease","value":3552.0}]},{"name":"Climatological","children":[{"name":"Forest fire","value":372582.0},{"name":"Land fire (Brush, Bush, Pasture)","value":659854.0},{"name":"Wildfire (General)","value":72837.0}]},{"name":"Geophysical","children":[{"name":"Earthquake","value":35528.0},{"name":"Volcanic activity","value":2500.0}]},{"name":"Hydrological","children":[{"name":"Flash flood","value":48745.0},{"name":"Flood (General)","value":106931.0},{"name":"Riverine flood","value":11498088.0}]},{"name":"Meterological","children":[{"name":"Blizzard/Winter storm","value":85005603.0},{"name":"Derecho","value":12.0},{"name":"Hail","value":11347.0},{"name":"Heat wave","value":31.0},{"name":"Lightning/Thunderstorms","value":14542.0},{"name":"Severe weather","value":9797.0},{"name":"Storm (General)","value":207145.0},{"name":"Tornado","value":264307.0},{"name":"Tropical cyclone","value":11281175.0}]}]},{"name":"Technological","children":[{"name":"Industrial accident","children":[{"name":"Chemical spill","value":169.0},{"name":"Explosion (Industrial)","value":999.0},{"name":"Gas leak","value":8234.0}]},{"name":"Miscellaneous accident","children":[{"name":"Collapse (Miscellaneous)","value":334.0},{"name":"Explosion (Miscellaneous)","value":357.0},{"name":"Fire (Miscellaneous)","value":894.0},{"name":"Miscellaneous accident (General)","value":619.0}]},{"name":"Transport","chldren":[{"name":"Air","value":261.0},{"name":"Rail","value":4826.0},{"name":"Road","value":315.0},{"name":"Water","value":209.0}]}]}]}
+    // const data = {"name":"Natural","children":[{"name":"Biological","children":[{"name":"Infectious disease (General)","value":101.0},{"name":"Viral disease","value":3552.0}]},{"name":"Climatological","children":[{"name":"Forest fire","value":372582.0},{"name":"Land fire (Brush, Bush, Pasture)","value":659854.0},{"name":"Wildfire (General)","value":72837.0}]},{"name":"Geophysical","children":[{"name":"Earthquake","value":35528.0},{"name":"Volcanic activity","value":2500.0}]},{"name":"Hydrological","children":[{"name":"Flash flood","value":48745.0},{"name":"Flood (General)","value":106931.0},{"name":"Riverine flood","value":11498088.0}]},{"name":"Meterological","children":[{"name":"Blizzard/Winter storm","value":85005603.0},{"name":"Derecho","value":12.0},{"name":"Hail","value":11347.0},{"name":"Heat wave","value":31.0},{"name":"Lightning/Thunderstorms","value":14542.0},{"name":"Severe weather","value":9797.0},{"name":"Storm (General)","value":207145.0},{"name":"Tornado","value":264307.0},{"name":"Tropical cyclone","value":11281175.0}]}]}
+
     // console.log(data);
 
     // Create the color scale.
-    const color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1));
+    // const color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1));
+    const color = d3.scaleOrdinal(["#64c4ed", "#e46161"]);
 
     // Compute the layout.
     const hierarchy = d3.hierarchy(data)
@@ -37,7 +40,7 @@
     // Create the SVG container.
     const svg = d3.create("svg")
         .attr("viewBox", [-width / 2, -height / 2, width, width])
-        .style("font", "10px sans-serif");
+        .style("font", "7px Roboto, sans-serif");
 
     // Append the arcs.
     const path = svg.append("g")
@@ -125,11 +128,27 @@
         return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
     }
 
-    // Center Hover Text Label
+    // Center Hover Text Label    
     const hoverLabel = svg
     .append("text")
     .attr("text-anchor", "middle")
     .attr("fill", "#888");
+
+    hoverLabel
+    .append("tspan")
+    .attr("class", "hazard_name")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("dy", "-0.1em")
+    .attr("font-size", "3em")
+    .text("");
+
+    hoverLabel
+    .append("tspan")
+    .attr("x", 0)
+    .attr("y", -2)
+    .attr("dy", "1.5em")
+    .text("hazards impacted");
 
     hoverLabel
     .append("tspan")
@@ -143,9 +162,9 @@
     hoverLabel
     .append("tspan")
     .attr("x", 0)
-    .attr("y", 0)
+    .attr("y", 5)
     .attr("dy", "1.5em")
-    .text("of visits begin with this sequence");
+    .text("people between 2000-2022");
 
     // Add mouseover and mouseout event listeners to show/hide tooltips
     path.on("mouseover", function(event, d) {
@@ -159,16 +178,19 @@
         .style("opacity", 0);
     });
 
-
     document.body.appendChild(svg.node());
   });
 </script>
 
-<style>
-  /* Add any necessary styling here */
-</style>
-
-
 <main>
-    <h1>Natural and Technological Disasters</h1>
+    <h1>What Are the Most Deadly Natural and Technological Disasters from 2000-2022?</h1>
+    <p>Click on a slice to zoom in, and the middle to zoom out.</p>
 </main>
+
+
+<style>
+    /* add style */
+    h1 {
+        font-family: 'Roboto', sans-serif;
+    }
+</style>
