@@ -320,6 +320,8 @@
         .attr("text-anchor", "middle")
         .attr("fill", "#888");
 
+        hoverLabel.style("opacity", 0);
+
 
         hoverLabel
         .append("tspan")
@@ -371,11 +373,13 @@
 
         hoverLabel.transition()
             .duration(200)
+            .style("display", "block")
             .style("opacity", .9);
         })
         .on("mouseout", function(d) {
         hoverLabel.transition()
             .duration(500)
+            .style("display", "none")
             .style("opacity", 0);
         });
 
@@ -386,7 +390,7 @@
   <main>
       <h1>Natural and Technological Disasters in the United States from 2000-2022</h1>
       <h2>Mass disasters take place all over the United States each year. But which disasters have wreaked the most havoc?</h2>
-      <p>Hover over a section of the chart to see how many people have been impacted by that disaster class. <br/> Click on the section to zoom in to see the subcategories of that disaster class. <br/> Click on the outer edge of the middle circle to zoom back out.</p>
+      <p>Hover over a section of the chart to see how many people have been impacted by that disaster class. <br/> Click on the section to zoom in to see the subcategories of that disaster class. <br/> Click on the middle circle to zoom back out.</p>
       <a style="display: block;" href="https://docs.google.com/document/d/14R24_BvlbdtmUr3W0oudUZBbygMLJDj7ozOOGtSPFz4/edit?usp=sharing" target="_blank">Project Writeup</a>
       <a href="https://www.emdat.be/" target="_blank">data source</a>
   </main>
